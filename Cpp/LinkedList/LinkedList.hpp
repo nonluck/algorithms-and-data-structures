@@ -36,38 +36,34 @@ class LinkedList{
             try{
                 if(index < 0){
                     throw 400;
-                }
+                    }
                 Node<T>* newNode = new Node<T>;
                 newNode->data = value;
-                if(index<this->size-1 and index>0){
+                if(index<=this->size-1 and index>0){
+                    cout <<this->size<<endl;
                     //put in the middle
-                    cout << "ok\n";
                     int counter = 0;
                     Node<T>* current = head;
-                    while (!counter==index-1) {
+                    while (counter!=index-1) {
                         current = current->next;
                         counter++;
-                        }
+                    }
                     newNode->next = current->next;
                     current->next = newNode;
                 }else{
                     if(index==0){
-                        //put at the beginning
                         newNode->next = head;
                         head = newNode;
-                        
                     }else{
-                        //put at the end
                         Node<T>* current = head;
                         while (current->next != nullptr) {
-                            current = current->next;
-                        }
+                            current = current->next;}
                         current->next = newNode;
                     }
                 }
                 size++;
             }catch(int erro){
-                cout << "Aconteceu um erro do tipo " << erro <<"!!\n";
+                cout << "Aconteceu um erro na inserção tipo " << erro <<"!!\n";
             }
             
             
@@ -92,7 +88,7 @@ class LinkedList{
                     this->size--;
                 }
             }catch(int error){
-                cout << "Aconteceu o erro número "<<error<<"!!\n";
+                cout << "Aconteceu na remoção o erro número "<<error<<"!!\n";
             }
         }
 
